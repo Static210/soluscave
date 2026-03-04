@@ -1,0 +1,140 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav>
+		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
+		<div class="social-links" aria-label="Social links">
+			<a href="https://instagram.com/jasons.json" target="_blank" rel="noreferrer">
+				<span class="sr-only">Instagram</span>
+				<svg viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+					<path
+						fill="currentColor"
+						d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.51 5.51 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.75a1.25 1.25 0 1 1-1.25-1.25A1.25 1.25 0 0 1 18 6.75z"
+					/>
+				</svg>
+			</a>
+
+			<a href="https://www.facebook.com/share/1CKRmTuR6g/" target="_blank" rel="noreferrer">
+				<span class="sr-only">Facebook</span>
+				<svg viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+					<path
+						fill="currentColor"
+						d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6H16.8V5.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.6V11H7.2v3h2.6v8h3.7z"
+					/>
+				</svg>
+			</a>
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+
+		/* Cozy beige “paper glass” */
+		background: rgba(251, 245, 232, 0.82);
+		backdrop-filter: blur(10px);
+
+		border-bottom: 1px solid rgba(31, 42, 34, 0.12);
+		box-shadow: 0 10px 25px rgba(31, 42, 34, 0.10);
+
+		position: sticky;
+		top: 0;
+		z-index: 10;
+	}
+
+	/* Subtle green accent line only */
+	header::after {
+		content: "";
+		display: block;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			rgba(79, 122, 82, 0%),
+			rgba(79, 122, 82, 40%),
+			rgba(79, 122, 82, 20%),
+			rgba(79, 122, 82, 40%),
+			rgba(79, 122, 82, 0%)
+		);
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.05em;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+		color: var(--text);
+		letter-spacing: 0.02em;
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.internal-links {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	/* Clean underline nav (no bubbles) */
+	nav a {
+		padding: 0.95em 0.55em;
+		color: rgba(31, 42, 34, 0.78);
+		border-bottom: 2px solid transparent;
+		text-decoration: none;
+		background: transparent;
+	}
+
+	nav a:hover {
+		color: rgba(31, 42, 34, 0.92);
+		border-bottom-color: rgba(79, 122, 82, 0.45);
+	}
+
+	nav a.active {
+		color: rgba(31, 42, 34, 0.92);
+		border-bottom-color: var(--accent); /* green */
+	}
+
+	/* Socials */
+	.social-links,
+	.social-links a {
+		display: flex;
+		align-items: center;
+	}
+
+	.social-links {
+		gap: 0.25rem;
+	}
+
+	.social-links a {
+		opacity: 0.85;
+		color: rgba(31, 42, 34, 0.72);
+		background: transparent;
+	}
+
+	.social-links a:hover {
+		opacity: 1;
+		color: var(--accent); /* green on hover */
+	}
+
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+</style>

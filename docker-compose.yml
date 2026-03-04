@@ -1,0 +1,13 @@
+services:
+  astro:
+    image: node:25-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "4321:4321"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=250
+    command: sh -lc "npm run dev -- --host 0.0.0.0 --port 4321"
+    restart: unless-stopped

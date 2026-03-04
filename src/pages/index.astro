@@ -1,0 +1,155 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<p class="kicker">Dev Log</p>
+				<h1>This is where I think out loud.</h1>
+				<p class="sub">
+					A mix of dev notes and life notes — what I’m learning, what I’m building, and what I’m trying to improve day by day.
+				</p>
+
+				<div class="cta">
+					<a class="btn primary" href="/blog">Read the latest</a>
+					<a class="btn" href="/about">About me</a>
+				</div>
+			</section>
+
+			<section class="lanes" aria-label="Content lanes">
+				<div class="card">
+					<h2>Logs</h2>
+					<p>Weekly progress, what worked, what didn’t, and what I’m doing next.</p>
+					<a href="/blog?type=log">Browse logs →</a>
+				</div>
+
+				<div class="card">
+					<h2>Notes</h2>
+					<p>Short, dense technical learnings I want to remember (and reuse).</p>
+					<a href="/blog?type=note">Browse notes →</a>
+				</div>
+
+				<div class="card">
+					<h2>Playbooks</h2>
+					<p>Checklists and repeatable workflows I use in real systems.</p>
+					<a href="/blog?type=playbook">Browse playbooks →</a>
+				</div>
+			</section>
+
+			<section class="now">
+				<h2>What I’m doing right now</h2>
+				<ul>
+					<li>Trying to figure out who I am (and what I actually want).</li>
+					<li>Becoming a new IT software engineer — learning by building, breaking, and fixing.</li>
+					<li>Getting better day by day: small habits, honest reflection, steady progress.</li>
+				</ul>
+			</section>
+
+			<section class="start">
+				<h2>Start here</h2>
+				<ul>
+					<li><a href="/blog">Latest posts</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/blog/first-post/">Example: First post</a> (replace later)</li>
+				</ul>
+			</section>
+		</main>
+
+		<style>
+			.hero {
+				padding: 3rem 0 2rem;
+			}
+			.kicker {
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				opacity: 0.8;
+				margin: 0 0 0.5rem;
+				font-size: 0.9rem;
+			}
+			.hero h1 {
+				font-size: clamp(2rem, 4vw, 3rem);
+				line-height: 1.1;
+				margin: 0 0 1rem;
+			}
+			.sub {
+				max-width: 60ch;
+				opacity: 0.9;
+				margin: 0 0 1.5rem;
+			}
+			.cta {
+				display: flex;
+				gap: 0.75rem;
+				flex-wrap: wrap;
+			}
+
+			.btn {
+				display: inline-block;
+				padding: 0.65rem 0.9rem;
+				border: 1px solid currentColor;
+				border-radius: 999px;
+				text-decoration: none;
+			}
+			.btn.primary {
+				display: inline-block;
+				padding: 0.65rem 0.9rem;
+				border: 1px solid currentColor;
+				border-radius: 999px;
+				text-decoration: none;
+			}
+
+			.lanes {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 1rem;
+				padding: 1rem 0 2rem;
+			}
+			.card {
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 16px;
+				padding: 1.25rem;
+			}
+			.card h2 {
+				margin: 0 0 0.5rem;
+				font-size: 1.1rem;
+			}
+			.card p {
+				margin: 0 0 0.75rem;
+				opacity: 0.9;
+			}
+			.card a {
+				text-decoration: none;
+			}
+			.card a:hover {
+				text-decoration: underline;
+			}
+
+			.now, .start {
+				padding: 1rem 0 2rem;
+			}
+			.now h2, .start h2 {
+				margin: 0 0 0.75rem;
+			}
+			.now ul, .start ul {
+				margin: 0;
+				padding-left: 1.2rem;
+			}
+
+			@media (max-width: 800px) {
+				.lanes {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+		<Footer />
+	</body>
+</html>

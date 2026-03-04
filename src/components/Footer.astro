@@ -1,0 +1,49 @@
+---
+const today = new Date();
+---
+
+<footer>
+	&copy; {today.getFullYear()} Jason Struwig. All rights reserved.
+	<div class="social-links" aria-label="Social links">
+		<a href="https://instagram.com/jasons.json" target="_blank" rel="noreferrer">
+			<span class="sr-only">Instagram</span>
+			<svg viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+				<path
+					fill="currentColor"
+					d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.51 5.51 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.75a1.25 1.25 0 1 1-1.25-1.25A1.25 1.25 0 0 1 18 6.75z"
+				/>
+			</svg>
+		</a>
+
+		<a href="https://www.facebook.com/share/1CKRmTuR6g/" target="_blank" rel="noreferrer">
+			<span class="sr-only">Facebook</span>
+			<svg viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+				<path
+					fill="currentColor"
+					d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6H16.8V5.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.6V11H7.2v3h2.6v8h3.7z"
+				/>
+			</svg>
+		</a>
+	</div>
+</footer>
+<style>
+	footer {
+		padding: 2em 1em 6em 1em;
+		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		color: rgb(var(--gray));
+		text-align: center;
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin-top: 1em;
+	}
+	.social-links a {
+		text-decoration: none;
+		color: rgb(var(--gray));
+	}
+	.social-links a:hover {
+		color: rgb(var(--gray-dark));
+	}
+</style>
