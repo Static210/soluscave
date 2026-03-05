@@ -11,7 +11,7 @@ const blog = defineCollection({
 			updatedDate: z.coerce.date().optional(),
 			heroImage: image().optional(),
 
-			// ✅ add this:
+			type: z.enum(["log", "note", "playbook"]),
 			tags: z.array(z.string()).default([]),
 		}),
 });
